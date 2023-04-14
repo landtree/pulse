@@ -26,6 +26,16 @@ void Pulse::setRate(int rate)
     Pulse::rate = rate;
 }
 
+void Pulse::setMax(int maxVal)
+{
+    Pulse::maxVal = maxVal;
+}
+
+void Pulse::setMin(int minVal)
+{
+    Pulse::minVal = minVal;
+}
+
 void Pulse::update(bool pulseEnable)
 {
         if(lightRaise.running() == false)
@@ -38,7 +48,7 @@ void Pulse::update(bool pulseEnable)
                     increment++;
                     analogWrite(PWMpin, increment);
                     lightRaise.setTime(rate);                    
-                    if(increment == 255){En = 1;}      
+                    if(increment == maxVal){En = 1;}      
                 }
             
                 //EN 1 == lower light
@@ -47,7 +57,7 @@ void Pulse::update(bool pulseEnable)
                     increment--; 
                     analogWrite(PWMpin, increment);
                     lightRaise.setTime(rate);
-                    if(increment == 0){En = 0;}            
+                    if(increment == minVal){En = 0;}            
                 }
             }
         }

@@ -1,0 +1,38 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "c:/Users/Landtree/Documents/GitHub/pulse/include",
+                "c:/Users/Landtree/Documents/GitHub/pulse/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "c:/Users/Landtree/Documents/GitHub/pulse/include",
+                    "c:/Users/Landtree/Documents/GitHub/pulse/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "F_CPU=",
+                "PLATFORMIO=60106",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "C:/Users/Landtree/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerArgs": [
+                "-mmcu=",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
