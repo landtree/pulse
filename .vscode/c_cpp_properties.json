@@ -22,7 +22,7 @@
             },
             "defines": [
                 "F_CPU=",
-                "PLATFORMIO=60106",
+                "PLATFORMIO=60107",
                 ""
             ],
             "cStandard": "c11",
