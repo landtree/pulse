@@ -8,32 +8,50 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "c:/Users/landtree/Documents/GitHub/pulse/include",
-                "c:/Users/landtree/Documents/GitHub/pulse/src",
-                "c:/Users/landtree/Documents/GitHub/pulse/.pio/libdeps/Atmel/OMSI_Timer/src",
-                "c:/Users/landtree/Documents/GitHub/pulse/.pio/libdeps/Atmel/OMSI_Timer@1.0.0/src",
+                "C:/Users/adelanty/OneDrive - Oregon Museum of Science and Industry (OMSI)/Documents/GitHub/pulse/include",
+                "C:/Users/adelanty/OneDrive - Oregon Museum of Science and Industry (OMSI)/Documents/GitHub/pulse/src",
+                "C:/Users/adelanty/OneDrive - Oregon Museum of Science and Industry (OMSI)/Documents/GitHub/pulse/.pio/libdeps/Atmel/OMSI_Timer/src",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/variants/itsybitsy32u4",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "c:/Users/landtree/Documents/GitHub/pulse/include",
-                    "c:/Users/landtree/Documents/GitHub/pulse/src",
-                    "c:/Users/landtree/Documents/GitHub/pulse/.pio/libdeps/Atmel/OMSI_Timer/src",
-                    "c:/Users/landtree/Documents/GitHub/pulse/.pio/libdeps/Atmel/OMSI_Timer@1.0.0/src",
+                    "C:/Users/adelanty/OneDrive - Oregon Museum of Science and Industry (OMSI)/Documents/GitHub/pulse/include",
+                    "C:/Users/adelanty/OneDrive - Oregon Museum of Science and Industry (OMSI)/Documents/GitHub/pulse/src",
+                    "C:/Users/adelanty/OneDrive - Oregon Museum of Science and Industry (OMSI)/Documents/GitHub/pulse/.pio/libdeps/Atmel/OMSI_Timer/src",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/cores/arduino",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/variants/itsybitsy32u4",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+                    "C:/Users/adelanty/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     ""
                 ]
             },
             "defines": [
-                "F_CPU=16000000L",
                 "PLATFORMIO=60115",
                 "ARDUINO_AVR_ITSYBITSY32U4_5V",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_AVR",
+                "ARDUINO=10808",
+                "USB_VID=0x239A",
+                "USB_PID=0x000E",
+                "USB_PRODUCT=\"ItsyBitsy 32u4 5V 16MHz\"",
+                "USB_MANUFACTURER=\"Adafruit\"",
                 "__AVR_ATmega32U4__",
                 ""
             ],
             "cStandard": "gnu11",
             "cppStandard": "gnu++11",
-            "compilerPath": "C:/Users/landtree/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+            "compilerPath": "C:/Users/adelanty/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
             "compilerArgs": [
                 "-mmcu=atmega32u4",
                 ""

@@ -1,6 +1,6 @@
-#pragma once
 #include <stdint.h>
 #include <avr/io.h>
+#include <Arduino.h>
 #ifndef PULSE_H
 #define PULSE_H
 
