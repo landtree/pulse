@@ -1,6 +1,6 @@
 {
   "name": "Pulse_PWM",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "A basic class object to control fading.",
   "keywords": "fade,breathe,pulse",
   "repository":
