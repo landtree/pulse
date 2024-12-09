@@ -1,32 +1,36 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <Arduino.h>
+#include <Timer.h>
+
 #ifndef PULSE_H
 #define PULSE_H
 
-#include <Timer.h>
+
 
 
 class Pulse 
 {   
     public:
         Pulse();
-        void attach(int8_t PWMpin);
-        void setRate(int8_t rate);
-        void update(bool pulseEnable);
-        void setMax(int8_t maxVal);
-        void setMin(int8_t minVal);
-        void setIncrement(int8_t increment);
+        void attach(int8_t inPWMpin);
+        void setRate(int8_t inRate = 10);
+        void update(bool inPulseEnable);
+        void setMax(int8_t inMaxVal=255);
+        void setMin(int8_t inMinVal=0);
+        void setIncrement(int8_t inIncrement=5);
     private:
-        int8_t PWMpin;
+        uint8_t PWMpin;
         bool pulseEnable;
-        int8_t rate;
-        int8_t maxVal = 255; //max value to raise light to
-        int8_t minVal = 0; //min value to lower light to
-        int8_t increment = 5; //how many increments to increase
+        uint8_t rate;
+        uint8_t maxVal; //max value to raise light to
+        uint8_t minVal; //min value to lower light to
+        uint8_t increment; //how many increments to increase
+        uint8_t tick;
         bool En = 0; //bool to hold direction of pulse
-        MoToTimer lightRaise; // Declare lightRaise as a member variable
-        MoToTimer lightLower; // Declare lightLower as a member variable
+        
+        MoToTimer lightRaise; // Declare lightRaise
+        MoToTimer lightLower; // Declare lightLower
 
 };
 

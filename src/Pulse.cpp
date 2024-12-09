@@ -12,78 +12,106 @@ https://github.com/MicroBahner/MobaTools
 
 #include <Pulse.h>
 
-Pulse::Pulse()
-{
-    // Create a new MoToTimer object for light raising
-    lightRaise = MoToTimer();
-    lightLower = MoToTimer();
-}
+Pulse::Pulse() 
+    : lightRaise(), lightLower(), PWMpin(0), pulseEnable(false), rate(10),
+      maxVal(255), minVal(0), increment(5), tick(0), En(0)
+{}
 
-void Pulse::attach(int8_t PWMpin)
+/**
+ * @brief Attachs the lights to a pin on the board, supports 0-23, defaults to 0;
+ * @param attach the datapin the LED attached to.
+ */
+void Pulse::attach(int8_t inPWMpin)
 {   
-    Pulse::PWMpin = PWMpin; 
- 
+    this->PWMpin = inPWMpin;
 }
 
-void Pulse::setRate(int8_t rate)
+/**
+ * @brief Attachs the lights to a pin on the board, supports 0-23, defaults to 0;
+ * @param setRate the rate at which the pulse updates
+ */
+void Pulse::setRate(int8_t inRate)
 {
-    Pulse::rate = rate;
+    this->rate = inRate;
 }
 
-void Pulse::setMax(int8_t maxVal)
+/**
+ * @brief Attachs the lights to a pin on the board, supports 0-23, defaults to 0;
+ * @param setMax Max brightness the led will hit before fading out. 125 is a good high when not diffusing.
+ */
+void Pulse::setMax(int8_t inMaxVal)
 {
-    Pulse::maxVal = maxVal;
+    this->maxVal = inMaxVal;
 }
 
-void Pulse::setMin(int8_t minVal)
+/**
+ * @brief Attachs the lights to a pin on the board, supports 0-23, defaults to 0;
+ * @param setMin min brightness the light will get to before starting to fade up
+ */
+void Pulse::setMin(int8_t inMinVal)
 {
-    Pulse::minVal = minVal;
+    this->minVal = inMinVal;
 }
 
-void Pulse::setIncrement(int8_t increment)
+/**
+ * @brief Attachs the lights to a pin on the board, supports 0-23, defaults to 0;
+ * @param setIncrement how much does each interval increase. ie every 5ms increase/decrease by 5
+ */
+void Pulse::setIncrement(int8_t inIncrement)
 {
-    Pulse::increment = increment;
+    this->increment = inIncrement;
 }
 
 
-void Pulse::update(bool pulseEnable)
-{
-        if(lightRaise.running() == false)
+void Pulse::update(bool inPulseEnable)
+{   
+    this->pulseEnable = inPulseEnable;
+
+        if(!this->lightRaise.running())
         {   
-            if(pulseEnable == 1)
+            if(this->pulseEnable)
             {
                 //En 0 == raise light
-                if(En == 0)
+                if(!this->En)
                 {   
-                    increment++;
-                    analogWrite(PWMpin, increment);
-                    lightRaise.setTime(rate);                    
-                    if(increment == maxVal){En = 1;}      
+                    this->tick += this->increment;
+                    if(this->tick >= this->maxVal)
+                    {
+                        this->En = 1;
+                        this->tick = this->maxVal;
+                        
+                    }else
+                    {
+                        analogWrite(this->PWMpin, this->tick);
+                        this->lightRaise.setTime(this->rate);   
+                    }
+
                 }
             
                 //EN 1 == lower light
-                if(En == 1)
+                if(this->En == 1)
                 {  
-                    increment--; 
-                    analogWrite(PWMpin, increment);
-                    lightRaise.setTime(rate);
-                    if(increment == minVal){En = 0;}            
+                    this->tick = this->tick - this->increment;
+                    if(this->tick <= this->minVal){this->En = 0; this->tick = this->minVal;}  
+                    analogWrite(this->PWMpin, this->tick);
+                    this->lightRaise.setTime(this->rate);                               
                 }
             }
         }
-        if(lightLower.running() == false)
+
+
+        if(this->lightLower.running() == false)
         {
             //fade out when game start
-            if(pulseEnable == 0)
+            if(this->pulseEnable == 0)
             {   
-                if(increment > 0)
+                if(this->tick > 0)
                 {
-                increment--; 
-                analogWrite(PWMpin, increment);
-                lightLower.setTime(rate);
-                lightLower.restart();
+                this->tick = this->tick - this->increment; 
+                analogWrite(this->PWMpin, this->tick);
+                this->lightLower.setTime(this->rate);
                 }
-                if(increment == 0){En = 0;}    
+                if(this->tick <= 0){this->En = 0; this->tick = 0;}    
             }
         }
 
